@@ -1,0 +1,21 @@
+# Entorno virtual
+.venv/
+
+# Base de datos DuckDB
+*.duckdb
+*.duckdb.wal
+
+# Datos crudos (viven en ../Data, no se versionan)
+data/
+
+# dbt: artefactos compilados, paquetes y logs
+dbt_olist/target/
+dbt_olist/dbt_packages/
+dbt_olist/logs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
