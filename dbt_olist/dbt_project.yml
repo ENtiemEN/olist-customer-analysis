@@ -1,0 +1,22 @@
+name: 'dbt_olist'
+version: '1.0.0'
+config-version: 2
+
+# debe coincidir con el nombre del perfil en profiles.yml
+profile: 'dbt_olist'
+
+model-paths: ["models"]
+test-paths: ["tests"]
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  dbt_olist:
+    staging:
+      +materialized: view     # staging = vistas (limpieza ligera)
+      +schema: staging
+    marts:
+      +materialized: table    # marts = tablas (dim/fct materializadas)
+      +schema: marts

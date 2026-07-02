@@ -4,6 +4,7 @@
 # Base de datos DuckDB
 *.duckdb
 *.duckdb.wal
+*.db
 
 # Datos crudos (viven en ../Data, no se versionan)
 data/
@@ -12,6 +13,7 @@ data/
 dbt_olist/target/
 dbt_olist/dbt_packages/
 dbt_olist/logs/
+dbt_olist/.user.yml
 
 # Jupyter
 .ipynb_checkpoints/

@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: olist
+    schema: bronze
+    description: "Capa Bronze: Copia raw de los 9 CSV de Olist, cargada en Python"
+    tables:
+      - name: orders
+      - name: order_items
+      - name: customers
+      - name: products
+      - name: sellers
+      - name: payments
+      - name: reviews
+      - name: geolocation
+      - name: category_translation
