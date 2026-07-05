@@ -1,0 +1,75 @@
+version: 2
+
+models:
+  - name: dim_cliente
+    columns:
+      - name: customer_unique_id
+        tests:
+          - unique
+          - not_null
+      - name: fecha_primera_compra
+        tests:
+          - not_null
+      - name: fecha_ultima_compra
+        tests:
+          - not_null
+  - name: dim_producto
+    columns:
+      - name: product_id
+        tests:
+          - unique
+          - not_null
+  - name: dim_fecha
+    columns:
+      - name: fecha
+        tests:
+          - unique
+          - not_null
+  - name: fct_ordenes
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: customer_unique_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_cliente')
+                field: customer_unique_id
+      - name: fecha_compra
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_fecha')
+                field: fecha
+
+  - name: fct_items
+    columns:
+      - name: item_key
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('fct_ordenes')
+                field: order_id
+      - name: product_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_producto')
+                field: product_id
+      - name: customer_unique_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_cliente')
+                field: customer_unique_id

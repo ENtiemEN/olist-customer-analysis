@@ -9,10 +9,10 @@
 # Datos crudos (viven en ../Data, no se versionan)
 data/
 
-# dbt: artefactos compilados, paquetes y logs
-dbt_olist/target/
-dbt_olist/dbt_packages/
-dbt_olist/logs/
+# dbt: artefactos compilados, paquetes y logs (en cualquier carpeta)
+target/
+dbt_packages/
+logs/
 dbt_olist/.user.yml
 
 # Jupyter
