@@ -73,3 +73,22 @@ models:
               arguments:
                 to: ref('dim_cliente')
                 field: customer_unique_id
+  
+  - name: base_analitica
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: order_status
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['delivered', 'shipped', 'invoiced', 'processing', 'created', 'approved']
+      - name: customer_unique_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_cliente')
+                field: customer_unique_id
