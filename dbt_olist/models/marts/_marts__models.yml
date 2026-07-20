@@ -92,3 +92,20 @@ models:
               arguments:
                 to: ref('dim_cliente')
                 field: customer_unique_id
+
+  - name: dim_cliente_segmento
+    columns:
+      - name: customer_unique_id
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments: 
+                to: ref('dim_cliente')
+                field: customer_unique_id
+      - name: segmento
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Campeones','Leales','Prometedores','Recientes','Dormidos alto valor', 'Hibernando']
